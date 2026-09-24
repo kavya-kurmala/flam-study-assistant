@@ -13,13 +13,13 @@ export class ApiError extends Error {
     this.type = type
   }
 }
-
+const API_BASE = import.meta.env.VITE_API_URL || ''
 // The frontend never calls the LLM directly — it only ever talks to our
 // own backend, which holds the API key.
 export async function generateStudySet(topic, { signal } = {}) {
   let response
   try {
-    response = await fetch('/api/generate', {
+    response = await fetch('${API_BASE}/api/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ topic }),
