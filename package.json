@@ -1,0 +1,11 @@
+{
+  "name": "flam-study-assistant",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev --prefix server\" \"npm:dev --prefix client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
